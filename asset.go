@@ -863,12 +863,12 @@ func initFarm(cookie string, state chan string) {
 		rt = "数据异常"
 	} else {
 		if a.TreeState == 2 || a.TreeState == 3 {
-			rt += "已可领取⏰"
+			rt += "已可领取"
 			not = rt
 		} else if a.TreeState == 1 {
-			rt += fmt.Sprintf("种植中，进度%.2f%%🍒", 100*float64(a.FarmUserPro.TreeEnergy)/float64(a.FarmUserPro.TreeTotalEnergy))
+			rt += fmt.Sprintf("种植中，进度%.2f%%�", 100*float64(a.FarmUserPro.TreeEnergy)/float64(a.FarmUserPro.TreeTotalEnergy))
 		} else if a.TreeState == 0 {
-			rt = "您忘了种植新的水果⏰"
+			rt = "您忘了种植新的水果"
 			not = rt
 		}
 	}
@@ -967,22 +967,22 @@ func initPetTown(cookie string, state chan string) {
 	not := ""
 	if a.Code == "0" && a.ResultCode == "0" && a.Message == "success" {
 		if a.Result.UserStatus == 0 {
-			rt = "请手动开启活动⏰"
+			rt = "请手动开启活动"
 			not = rt
 
 		} else if a.Result.GoodsInfo.GoodsName == "" {
-			rt = "你忘了选购新的商品⏰"
+			rt = "你忘了选购新的商品"
 			not = rt
 
 		} else if a.Result.PetStatus == 5 {
-			rt = a.Result.GoodsInfo.GoodsName + "已可领取⏰"
+			rt = a.Result.GoodsInfo.GoodsName + "已可领取"
 			not = rt
 
 		} else if a.Result.PetStatus == 6 {
-			rt = a.Result.GoodsInfo.GoodsName + "未继续领养新的物品⏰"
+			rt = a.Result.GoodsInfo.GoodsName + "未继续领养新的物品"
 			not = rt
 		} else {
-			rt = a.Result.GoodsInfo.GoodsName + fmt.Sprintf("领养中，进度%.2f%%，勋章%d/%d🐶", a.Result.MedalPercent, a.Result.MedalNum, a.Result.GoodsInfo.ExchangeMedalNum)
+			rt = a.Result.GoodsInfo.GoodsName + fmt.Sprintf("领养中，进度%.2f%%，勋章%d/%", a.Result.MedalPercent, a.Result.MedalNum, a.Result.GoodsInfo.ExchangeMedalNum)
 		}
 	} else {
 		rt = "数据异常"
