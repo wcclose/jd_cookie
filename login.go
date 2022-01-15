@@ -350,7 +350,7 @@ func initLogin() {
 					if !successLogin && !cancel { // && c != nil
 						// s.Reply("将由阿东继续为您服务！")
 						// goto ADONG
-						return "登录失败。"
+						return "登录失败？。"
 					}
 				}
 				return nil
